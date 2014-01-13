@@ -7,6 +7,10 @@ While the original code worked well with Meteor 0.6.3.1; the Meteor platform its
 
 This repository contains code that will be updated periodically to work with the current version of Meteor.
 
+### UPDATES
+
+The code is now compatible with Meteor 0.7.0.1.  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_7_0_1.zip). 
+
 ### Original Readme.txt
 
 To try out this sample code, you need to first make sure that
