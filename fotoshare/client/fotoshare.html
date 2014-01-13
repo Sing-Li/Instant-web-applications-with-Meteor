@@ -1,0 +1,67 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>developerWorks fotoshare via Meteor</title>
+	
+</head>
+
+<body>
+  <div data-role="page" id="login">
+      <div data-role="header">
+          <h1>dW Foto Share</h1>
+      </div> <!-- /header -->
+
+    <div data-role="content">
+  
+       <div class="logindialog">
+            
+              {{loginButtons}}
+            
+       </div>
+    </div> <!-- content -->
+  </div>   <!-- page -->
+ 
+   	{{> pages}}
+ </body>
+
+<template name="pages">
+    {{#if currentUser}}
+		{{resetIndex}}
+   {{#each photos}}
+      {{> photopage}}
+      {{incIndex}}
+    {{/each}}
+    {{/if}}
+   
+</template>
+
+<template name="photopage">
+  <div data-role="page" id="p{{index}}">
+      <div data-role="header">
+          <h1>dW Foto Share</h1>
+      </div> <!-- /header -->
+    
+    <div data-role="content" class="apic">
+	  
+    <img src="{{img}}" />
+    <ul data-role="pagination">
+       {{#if indexIsZero}}
+		<li class="ui-pagination-next"><a href="#p{{indexNext}}">Next</a></li>
+		{{else}}
+		<li class="ui-pagination-prev"><a href="#p{{indexPrev}}">Prev</a></li>
+		<li id="x{{index}}" class="ui-pagination-next"><a href="#p{{indexNext}}">Next</a></li>	
+		{{/if}}
+	</ul>
+      
+    </div> <!-- /content -->
+
+     <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-icon="gear" class="fs-share ui-btn-active">Share</a></li>
+                <li><a href="#" data-icon="delete" class="fs-logoff">Log off</a></li>
+            </ul>
+        </div><!-- /navbar -->
+     </div><!-- /footer -->
+    </div> <!-- /page -->
+
+</template>

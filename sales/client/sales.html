@@ -1,0 +1,45 @@
+
+<head>
+<title>Sales by Region</title>
+</head>
+
+<body>
+  <div id="title">
+   <div class="header">
+          <div class="span5">
+            <h1 style="margin-bottom: 0px">Sales Portal</h1>
+          </div>
+          <div class="span5">
+            <div style="float: right">
+              {{loginButtons align="right"}}
+            </div>
+          </div>
+    </div>
+  </div>
+  <div id="container">
+ 
+  	<div id="salestable">
+      {{#if currentUser}}
+    	{{> salesdata}}
+      {{/if}}
+  	</div>
+  	<div id="chart">
+  	</div>
+  </div>
+  
+</body>
+
+<template name="salesdata">
+  <div class="salesdata">
+    {{#each dataset}}
+      {{> datapoint}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="datapoint">
+  <div class="datapoint {{selected}}">
+    <span class="region">{{region}}</span>
+    <span class="sales editable">{{total}}</span>
+  </div>
+</template>
