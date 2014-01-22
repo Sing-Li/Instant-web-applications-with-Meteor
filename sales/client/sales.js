@@ -17,6 +17,37 @@ Template.datapoint.selected = function () {
     }
   };
 
+function setDeps ()  {
+ Deps.autorun(function()  {
+ plotit(Sales2013.find({}));
+ });
+}
+
+
+function plotit(cur)  {
+ if (cur.count() === 0)  // do not render pie if no data
+       return;
+     var data = [];
+     cur.forEach( function(sale) {
+       data.push( [sale.region, sale.total]);
+     });
+  plot1 = $.jqplot ('chart', [data], 
+    { 
+      seriesDefaults: {
+        // Make this a pie chart.
+        renderer: $.jqplot.PieRenderer, 
+        rendererOptions: {
+          // Put data labels on the pie slices.
+          // By default, labels show the percentage of the slice.
+          showDataLabels: true
+        }
+      }, 
+      legend: { show:true, location: 'e' }
+    }
+  );   
+
+}
+
 Template.salesdata.rendered = function()
 {
  
@@ -32,27 +63,12 @@ Template.salesdata.rendered = function()
      width : 100,
      submit  : 'OK',
  });
+ 
+ plotit(Sales2013.find({}));
 
-     var cur = Sales2013.find();
-     if (cur.count() === 0)  // do not render pie if no data
-       return;
-     var data = [];
-     cur.forEach( function(sale) {
-       data.push( [sale.region, sale.total]);
-     });
+ 
+setDeps();
 
-  var plot1 = $.jqplot ('chart', [data], 
-    { 
-      seriesDefaults: {
-        // Make this a pie chart.
-        renderer: $.jqplot.PieRenderer, 
-        rendererOptions: {
-          // Put data labels on the pie slices.
-          // By default, labels show the percentage of the slice.
-          showDataLabels: true
-        }
-      }, 
-      legend: { show:true, location: 'e' }
-    });   
-};
+
+}
 
