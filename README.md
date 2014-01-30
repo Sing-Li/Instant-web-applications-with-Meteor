@@ -9,18 +9,20 @@ This repository contains code that will be updated periodically to work with the
 
 ### UPDATE
 
+The code is now compatible with Meteor 0.7.0.1.  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_7_0_1.zip). 
+
+### UPDATE
+
 If you are already using Docker and want the fastest path to samples nirvana, you can have all three applications running in under
-a minute within a single LXC on a host/VPS (with 1GB RAM or more - otherwise you may run of ofmemory) using just these two commands:
+a minute within a single LXC on a host/VPS (with 1GB RAM or more - otherwise you may run of of memory) using just these two commands:
+
 
     docker pull singli/instantmeteor
     docker run -p=3000:3000 -p=3010:3010 -p=3020:3020 -t -i singli/instantmeteor
 
-Then access the three applications over the Web using port 3000,3010, and 3020 respectively.
+Then access the three applications over the Web using port 3000, 3010, and 3020 respectively.
 
 
-### UPDATES
-
-The code is now compatible with Meteor 0.7.0.1.  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_7_0_1.zip). 
 
 ### Original Readme.txt
 
