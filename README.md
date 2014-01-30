@@ -15,7 +15,8 @@ The code is now compatible with Meteor 0.7.0.1.  Download [the zip file here](ht
 
 If you are already using Docker and want the fastest path to samples nirvana, you can have all three applications running in under
 a minute within a single LXC on a host/VPS (with 1GB RAM or more - otherwise you may run of of memory) using just these two commands:
-<br>
+
+
 
     docker pull singli/instantmeteor
     docker run -p=3000:3000 -p=3010:3010 -p=3020:3020 -t -i singli/instantmeteor
