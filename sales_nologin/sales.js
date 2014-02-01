@@ -17,13 +17,7 @@ if (Meteor.isClient) {
     }
   };
 
-function setDeps ()  {
- Deps.autorun(function()  {
- plotit(Sales2013.find({}));
- });
-}
-
-
+var salesdataRendered = false;
 function plotit(cur)  {
  if (cur.count() === 0)  // do not render pie if no data
        return;
@@ -47,9 +41,21 @@ function plotit(cur)  {
   );   
 
 }
+Template.datapoint.updated = function()
+{
+ console.log("datavalue updated\n");
+ if (salesdataRendered) {
 
+ plotit(Sales2013.find({}));
+ }
+}
+Template.datapoint.rendered = function()
+{
+console.log("datapoint rendered\n");
+};
 Template.salesdata.rendered = function()
 {
+console.log("salesdata  rendered\n");
  
   $('.editable').editable(function(value, settings) { 
      console.log(this);
@@ -67,7 +73,7 @@ Template.salesdata.rendered = function()
  plotit(Sales2013.find({}));
 
  
-setDeps();
+   salesdataRendered = true;
 
 
 }

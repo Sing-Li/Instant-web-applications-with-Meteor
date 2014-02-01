@@ -11,7 +11,7 @@
           </div>
           <div class="span5">
             <div style="float: right">
-              {{>loginButtons align="right"}}
+              {{> loginButtons align="right" }}
             </div>
           </div>
     </div>
@@ -43,6 +43,6 @@
 <template name="datapoint">
   <div class="datapoint {{selected}}">
     <span class="region">{{region}}</span>
-    <span class="sales editable">{{total}}</span>
+    <span class="sales editable {{updated}}">{{total}}</span>
   </div>
 </template>

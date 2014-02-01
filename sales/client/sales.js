@@ -1,6 +1,7 @@
 
 Sales2013 = new Meteor.Collection("regional_sales");
 
+var salesdataRendered = false;
 Meteor.subscribe("global_sales");
 
 Template.salesdata.dataset = function () {
@@ -16,12 +17,6 @@ Template.datapoint.selected = function () {
       Session.set("selected_datapoint", this._id);
     }
   };
-
-function setDeps ()  {
- Deps.autorun(function()  {
- plotit(Sales2013.find({}));
- });
-}
 
 
 function plotit(cur)  {
@@ -47,7 +42,11 @@ function plotit(cur)  {
   );   
 
 }
+Template.datapoint.updated = function()
+{
 
+ plotit(Sales2013.find({}));
+}
 Template.salesdata.rendered = function()
 {
  
@@ -65,9 +64,8 @@ Template.salesdata.rendered = function()
  });
  
  plotit(Sales2013.find({}));
-
+ salesdataRendered = true;
  
-setDeps();
 
 
 }
