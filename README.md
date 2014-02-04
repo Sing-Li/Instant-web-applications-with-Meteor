@@ -1,6 +1,18 @@
 Background
 ----------
 
+Meteor simplifies the development of single page, real-time, streaming data update applications by moving the entire 
+client and server stack to JavaScript plus offering a high level unified consistent programming model throughout. 
+
+See how you can build a web accessible, real-time updated, security access controlled sales chart web application in minutes.
+
+![Real time udpated sales chart with full user access control](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/figure3.jpg)
+
+Take Meteor mobile.  Build a photo sharing app for your mobile phone using Meteor.
+
+![dW Foto Share - a mobile photo sharing service](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/figure7.jpg)
+
+
 Please see [Instant web applications with Meteor](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/index.html)  for detailed information on working with this code.
 
 While the original code worked well with Meteor 0.6.3.1; the Meteor platform itself is undergoing some rapid changes as it heads towards release 1.0. Some changes broke compatibility with 0.6.3.1.
