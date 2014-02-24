@@ -21,7 +21,7 @@ This repository contains code that will be updated periodically to work with the
 
 ### UPDATE
 
-The code is now compatible with Meteor 0.7.0.1.  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_7_0_1.zip). 
+The code is now compatible with Meteor 0.7.1.1.  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_7_0_1.zip). 
 
 ### UPDATE for Docker users
 
