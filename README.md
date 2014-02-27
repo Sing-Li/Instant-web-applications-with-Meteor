@@ -51,8 +51,8 @@ The following notes on BlueMix deployment are based on BlueMix beta week-number-
 * Use the Heroku Node.js build-pack
 * Create a package.json file for npm
 * Create a MongoD service instance in BlueMix for each of your apps
-* Locate the URL from the MongoD service instance, and set MONGO_URL environment variable on BlueMix;  use 'cf env'
-* Set the ROOT_URL environment variable on BlueMix; use 'cf env'
+* Locate the URL from the MongoD service instance, and set MONGO_URL environment variable on BlueMix;  use 'cf set-env'
+* Set the ROOT_URL environment variable on BlueMix; use 'cf set-env'
 
 For the near future, I am developing a [BlueMix Meteor build-pack](https://github.com/Sing-Li/heroku-buildpack-nodejs) with aim to ease Meteor BlueMix deployment.
 
