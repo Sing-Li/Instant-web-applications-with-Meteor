@@ -20,7 +20,7 @@ Take Meteor mobile.  Build a photo sharing app for your mobile phone using Meteo
 
 ![dW Foto Share - a mobile photo sharing service](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/figure7.jpg)
 
-[**Try the mobile photo sharing app now on your phone - hosted on IBM's Codename BlueMix**](http://meteorsales2.ng.bluemix.net)
+[**Try this mobile web app now on your phone - hosted on IBM's Codename BlueMix**](http://meteorfotoshare.ng.bluemix.net)
 
 Please see [Instant web applications with Meteor](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/index.html)  for detailed information on working with this code.
 
