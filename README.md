@@ -9,6 +9,8 @@ See how you can build a web accessible, real-time updated, security access contr
 
 ![Real time udpated sales chart with full user access control](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/figure3.jpg)
 
+![==Try this app now on IBM's Codename BlueMix Enterprise Cloud==](http://meteorsales1.ng.bluemix.net)
+
 Take Meteor mobile.  Build a photo sharing app for your mobile phone using Meteor.
 
 ![dW Foto Share - a mobile photo sharing service](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/figure7.jpg)
@@ -19,11 +21,11 @@ While the original code worked well with Meteor 0.6.3.1; the Meteor platform its
 
 This repository contains code that will be updated periodically to work with the current version of Meteor.
 
-### UPDATE
+### NEW UPDATE
 
-The code is now compatible with Meteor 0.7.1.1.  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_7_0_1.zip). 
+The code is now compatible with Meteor 0.7.1.2.  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_7_0_1.zip). 
 
-### UPDATE for Docker users
+### NEW UPDATE for Docker users
 
 If you are already using Docker and want the fastest path to samples nirvana, you can have all three applications running in under
 a minute within a single LXC on a host/VPS (with 1GB RAM or more - otherwise you may run of of memory) using just these two commands:
