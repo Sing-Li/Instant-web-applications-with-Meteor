@@ -39,7 +39,8 @@ The code is now compatible with Meteor 0.7.1.2.  Download [the zip file here](ht
 ### NEW UPDATE for BlueMix users
 
 Please note that:
-* BlueMix is currently in beta and active development
+
+* BlueMix is currently in beta and under active development
 * Meteor is currently changing rapidly as it heads towards 1.0 release
 
 The following notes on BlueMix deployment are based on BlueMix beta week-number-1 + Meteor Preview 0.7.1.2 and may become out of date quickly.
@@ -53,7 +54,7 @@ The following notes on BlueMix deployment are based on BlueMix beta week-number-
 * Locate the URL from the MongoD service instance, and set MONGO_URL environment variable on BlueMix;  use 'cf env'
 * Set the ROOT_URL environment variable on BlueMix; use 'cf env'
 
-For the near future, I am developing a [BlueMix Meteor build-pack](http://www.ibm.com/) with aim to ease Meteor BlueMix deployment.
+For the near future, I am developing a [BlueMix Meteor build-pack](https://github.com/Sing-Li/heroku-buildpack-nodejs) with aim to ease Meteor BlueMix deployment.
 
 ### NEW UPDATE for Docker 0.8+ users
 
