@@ -13,8 +13,12 @@ Please see [Instant web applications with Meteor](http://www.ibm.com/developerwo
 
 [**Try this app now on IBM's Codename BlueMix**](http://meteorsales1.ng.bluemix.net)
 
+Open up multiple browser windows running the app; update sales in one of the windows, and observe the pie charts update across all.
+
 [**Try an access controlled version of the app now on IBM's Codename BlueMix**](http://meteorsales2.ng.bluemix.net)
 
+Mobile Photo Sharing Example on Meteor
+--------------------------------------
 
 Take Meteor mobile.  Build a photo sharing app for your mobile phone using Meteor.
 
@@ -26,13 +30,32 @@ Please see [Instant web applications with Meteor](http://www.ibm.com/developerwo
 
 While the original code worked well with Meteor 0.6.3.1; the Meteor platform itself is undergoing some rapid changes as it heads towards release 1.0. Some changes broke compatibility with 0.6.3.1.
 
-This repository contains code that will be updated periodically to work with the current version of Meteor.
+This repository contains code that will be updated periodically to work with the most current version of Meteor.
 
 ### NEW UPDATE
 
 The code is now compatible with Meteor 0.7.1.2.  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_7_0_1.zip). 
 
-### NEW UPDATE for Docker users
+### NEW UPDATE for BlueMix users
+
+Please note that:
+* BlueMix is currently in beta and active development
+* Meteor is currently changing rapidly as it heads towards 1.0 release
+
+The following notes on BlueMix deployment are based on BlueMix beta week-number-1 + Meteor Preview 0.7.1.2 and may become out of date quickly.
+
+* After you run meteor bundle on an app, it becomes a node application that can be deployed (anywhere, including BlueMix)
+* Remove the fiber implementation in the bundle, it is native to your platform, follow the README in the Meteor bundle you created
+* Make sure you use the Golang version of the cf client for BlueMix, version 6.0+, not the older Ruby one
+* Use the Heroku Node.js build-pack
+* Create a package.json file for npm
+* Create a MongoD service instance in BlueMix for each of your apps
+* Locate the URL from the MongoD service instance, and set MONGO_URL environment variable on BlueMix;  use 'cf env'
+* Set the ROOT_URL environment variable on BlueMix; use 'cf env'
+
+For the near future, I am developing a [BlueMix Meteor build-pack](http://www.ibm.com/) with aim to ease Meteor BlueMix deployment.
+
+### NEW UPDATE for Docker 0.8+ users
 
 If you are already using Docker and want the fastest path to samples nirvana, you can have all three applications running in under
 a minute within a single LXC on a host/VPS (with 1GB RAM or more - otherwise you may run of of memory) using just these two commands:
