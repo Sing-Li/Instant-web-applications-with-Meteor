@@ -11,14 +11,16 @@ Please see [Instant web applications with Meteor](http://www.ibm.com/developerwo
 
 ![Real time udpated sales chart with full user access control](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/figure3.jpg)
 
-![**Try this app now on IBM's Codename BlueMix Enterprise Cloud**](http://meteorsales1.ng.bluemix.net)
+[**Try this app now on IBM's Codename BlueMix**](http://meteorsales1.ng.bluemix.net)
 
-![**Try an access controlled version of the app now on IBM's Codename BlueMix Enterprise Cloud**](http://meteorsales2.ng.bluemix.net)
+[**Try an access controlled version of the app now on IBM's Codename BlueMix**](http://meteorsales2.ng.bluemix.net)
 
 
 Take Meteor mobile.  Build a photo sharing app for your mobile phone using Meteor.
 
 ![dW Foto Share - a mobile photo sharing service](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/figure7.jpg)
+
+[**Try the mobile photo sharing app now on your phone - hosted on IBM's Codename BlueMix**](http://meteorsales2.ng.bluemix.net)
 
 Please see [Instant web applications with Meteor](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/index.html)  for detailed information on working with this code.
 
