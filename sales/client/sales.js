@@ -1,6 +1,7 @@
 
 Sales2013 = new Meteor.Collection("regional_sales");
 
+var salesdataRendered = false;
 Meteor.subscribe("global_sales");
 
 Template.salesdata.dataset = function () {
@@ -17,6 +18,35 @@ Template.datapoint.selected = function () {
     }
   };
 
+
+function plotit(cur)  {
+ if (cur.count() === 0)  // do not render pie if no data
+       return;
+     var data = [];
+     cur.forEach( function(sale) {
+       data.push( [sale.region, sale.total]);
+     });
+  plot1 = $.jqplot ('chart', [data], 
+    { 
+      seriesDefaults: {
+        // Make this a pie chart.
+        renderer: $.jqplot.PieRenderer, 
+        rendererOptions: {
+          // Put data labels on the pie slices.
+          // By default, labels show the percentage of the slice.
+          showDataLabels: true
+        }
+      }, 
+      legend: { show:true, location: 'e' }
+    }
+  );   
+
+}
+Template.datapoint.updated = function()
+{
+
+ plotit(Sales2013.find({}));
+}
 Template.salesdata.rendered = function()
 {
  
@@ -32,27 +62,11 @@ Template.salesdata.rendered = function()
      width : 100,
      submit  : 'OK',
  });
+ 
+ plotit(Sales2013.find({}));
+ salesdataRendered = true;
+ 
 
-     var cur = Sales2013.find();
-     if (cur.count() === 0)  // do not render pie if no data
-       return;
-     var data = [];
-     cur.forEach( function(sale) {
-       data.push( [sale.region, sale.total]);
-     });
 
-  var plot1 = $.jqplot ('chart', [data], 
-    { 
-      seriesDefaults: {
-        // Make this a pie chart.
-        renderer: $.jqplot.PieRenderer, 
-        rendererOptions: {
-          // Put data labels on the pie slices.
-          // By default, labels show the percentage of the slice.
-          showDataLabels: true
-        }
-      }, 
-      legend: { show:true, location: 'e' }
-    });   
-};
+}
 

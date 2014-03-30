@@ -20,6 +20,8 @@ Template.photopage.index = function() {
 
 Template.pages.incIndex = function() {
   curIndex = curIndex + 1;
+
+  console.log("INC ED...");
 }
 
 Template.photopage.indexIsZero = function() {
@@ -47,7 +49,21 @@ Template.photopage.events({
   }
 });
 
+
+
 Template.pages.rendered = function() {
+
+  console.log("pages rendered");
+
+
+};
+
+
+
+Template.photopage.rendered = function () {
+  console.log('called PAGE rendered');
+
+  if (curIndex > 0)  {
    var curLast =  $('#x' + (curIndex - 1));
    var secLast =  $('#x' + (curIndex - 2));
    if (curLast)  {
@@ -59,18 +75,16 @@ Template.pages.rendered = function() {
       secLast.removeProp('disabled');
       secLast.show();
     }
-   }
    
-   $.mobile.initializePage();
-   Meteor.defer(function() {
-   $.mobile.changePage('#p' + (curIndex -1));
- });
-};
-
-
-
-Template.photopage.rendered = function () {
-  console.log('called PAGE rendered');
+   }
+  
+  Meteor.defer( function() {
+   
+   
+     $.mobile.changePage('#p' + (curIndex - 1));
+   });
+  }
+  
   };
 
 

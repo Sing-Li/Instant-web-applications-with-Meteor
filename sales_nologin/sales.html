@@ -14,10 +14,13 @@
     	{{> salesdata}}
   	</div>
   	<div id="chart">
-  	</div>
+    </div>
+
+    
   </div>
   
 </body>
+
 
 <template name="salesdata">
   <div class="salesdata">
@@ -30,6 +33,6 @@
 <template name="datapoint">
   <div class="datapoint {{selected}}">
     <span class="region">{{region}}</span>
-    <span class="sales editable">{{total}}</span>
+    <span class="sales editable {{updated}}">{{total}}</span>
   </div>
 </template>

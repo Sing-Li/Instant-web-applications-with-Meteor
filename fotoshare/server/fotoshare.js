@@ -38,17 +38,9 @@ Fotos = new Meteor.Collection("fotoshare_photos");
   });
 
   function readPic(infile)  {
-   /* var fs = Npm.require('fs');
-    var path = Npm.require('path');
-    var base = path.resolve('.');
-    //var deployLoc = 'bundle/static/images/';
-    var deployLoc = 'public/images/'
-    var data = fs.readFileSync(path.join(base, deployLoc, infile)); 
-*/
-    var data = Assets.getBinary('images/' + infile);
-//console.log(data);
-//    var tp = data.toString('base64');
-   var buf =  new Buffer(data);
+   
+  var data = Assets.getBinary('images/' + infile);
+  var buf =  new Buffer(data);
     var tp = buf.toString('base64');
     return  'data:image/jpeg;base64,' + tp;
      

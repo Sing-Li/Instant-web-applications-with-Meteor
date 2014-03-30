@@ -6,6 +6,7 @@ if (Meteor.isClient) {
     return Sales2013.find({});
   };
 
+
   Template.datapoint.selected = function () {
     return Session.equals("selected_datapoint", this._id) ? "selected" : '';
   };
@@ -16,31 +17,15 @@ if (Meteor.isClient) {
     }
   };
 
-Template.salesdata.rendered = function()
-{
- 
-  $('.editable').editable(function(value, settings) { 
-     console.log(this);
-     console.log(value);
-     console.log(settings);
-     Sales2013.update(Session.get("selected_datapoint"), {$set: {total: parseInt(value)}});
-     return(value);
-  }, { 
-     type    : 'text',
-     style : 'inherit',
-     width : 100,
-     submit  : 'OK',
- });
-
-     var cur = Sales2013.find();
-     if (cur.count() === 0)  // do not render pie if no data
+var salesdataRendered = false;
+function plotit(cur)  {
+ if (cur.count() === 0)  // do not render pie if no data
        return;
      var data = [];
      cur.forEach( function(sale) {
        data.push( [sale.region, sale.total]);
      });
-  
-  var plot1 = $.jqplot ('chart', [data], 
+  plot1 = $.jqplot ('chart', [data], 
     { 
       seriesDefaults: {
         // Make this a pie chart.
@@ -54,9 +39,46 @@ Template.salesdata.rendered = function()
       legend: { show:true, location: 'e' }
     }
   );   
-}
 
 }
+Template.datapoint.updated = function()
+{
+ console.log("datavalue updated\n");
+ if (salesdataRendered) {
+
+ plotit(Sales2013.find({}));
+ }
+}
+Template.datapoint.rendered = function()
+{
+console.log("datapoint rendered\n");
+};
+Template.salesdata.rendered = function()
+{
+console.log("salesdata  rendered\n");
+ 
+  $('.editable').editable(function(value, settings) { 
+     console.log(this);
+     console.log(value);
+     console.log(settings);
+     Sales2013.update(Session.get("selected_datapoint"), {$set: {total: parseInt(value)}});
+     return(value);
+  }, { 
+     type    : 'text',
+     style : 'inherit',
+     width : 100,
+     submit  : 'OK',
+ });
+ 
+ plotit(Sales2013.find({}));
+
+ 
+   salesdataRendered = true;
+
+
+}
+
+}  // if client
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
