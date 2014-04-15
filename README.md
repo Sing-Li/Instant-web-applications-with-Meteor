@@ -34,7 +34,7 @@ This repository contains code that will be updated periodically to work with the
 
 ### NEW UPDATE
 
-The code is now compatible with Meteor 0.7.1.2.  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_7_0_1.zip). 
+The code is now compatible with Meteor 0.8.0.0 (New Blaze Engine).  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_8_0_0.zip). 
 
 ### NEW UPDATE for BlueMix users
 

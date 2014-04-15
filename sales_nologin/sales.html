@@ -1,26 +1,24 @@
 
 <head>
-
 <title>Sales by Region</title>
 </head>
 
 <body>
   <div id="title">
-  	<h1>Global Sales 2013</h1>
+  	<h1>Global Sales 2014</h1>
   </div>
   <div id="container">
-
   	<div id="salestable">
     	{{> salesdata}}
   	</div>
-  	<div id="chart">
-    </div>
-
-    
+        {{> piechart}}
   </div>
-  
 </body>
 
+<template name="piechart">
+  	<div id="chart">
+    </div>
+</template>
 
 <template name="salesdata">
   <div class="salesdata">
@@ -32,7 +30,7 @@
 
 <template name="datapoint">
   <div class="datapoint {{selected}}">
-    <span class="region">{{region}}</span>
-    <span class="sales editable {{updated}}">{{total}}</span>
+    <span id="{{_id}}_region" class="region">{{region}}</span>
+    <span id="{{_id}}_total" class="sales editable">{{total}}</span>
   </div>
 </template>

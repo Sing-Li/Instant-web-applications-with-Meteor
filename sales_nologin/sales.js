@@ -2,30 +2,50 @@ Sales2013 = new Meteor.Collection("regional_sales");
 
 if (Meteor.isClient) {
 
-  Template.salesdata.dataset = function () {
+Template.salesdata.dataset = function () {
     return Sales2013.find({});
-  };
+};
 
-
-  Template.datapoint.selected = function () {
+Template.datapoint.selected = function () {
     return Session.equals("selected_datapoint", this._id) ? "selected" : '';
-  };
+ };
 
-  Template.datapoint.events = {
+ Template.datapoint.events = {
     'click': function () {
       Session.set("selected_datapoint", this._id);
     }
   };
 
-var salesdataRendered = false;
-function plotit(cur)  {
+
+Template.piechart.rendered = function () {
+Deps.autorun( function() {  
+ plotit(this, Sales2013.find({}));
+ updateTable(this, Sales2013.find({}));
+});
+
+}
+
+function updateTable(inst, cur)  {
+   if (cur.count() === 0)  // do not render pie if no data
+       return;
+     
+     cur.forEach( function(sale) {
+      
+          inst.$('#' + sale._id + '_region').text(sale.region);
+          inst.$('#' + sale._id + '_total').text(sale.total);
+      });
+
+}
+
+function plotit(inst,cur)  {
+
  if (cur.count() === 0)  // do not render pie if no data
        return;
      var data = [];
      cur.forEach( function(sale) {
        data.push( [sale.region, sale.total]);
      });
-  plot1 = $.jqplot ('chart', [data], 
+  inst.$.jqplot ('chart', [data], 
     { 
       seriesDefaults: {
         // Make this a pie chart.
@@ -41,26 +61,10 @@ function plotit(cur)  {
   );   
 
 }
-Template.datapoint.updated = function()
-{
- console.log("datavalue updated\n");
- if (salesdataRendered) {
 
- plotit(Sales2013.find({}));
- }
-}
 Template.datapoint.rendered = function()
 {
-console.log("datapoint rendered\n");
-};
-Template.salesdata.rendered = function()
-{
-console.log("salesdata  rendered\n");
- 
-  $('.editable').editable(function(value, settings) { 
-     console.log(this);
-     console.log(value);
-     console.log(settings);
+this.$('.editable').editable(function(value, settings) { 
      Sales2013.update(Session.get("selected_datapoint"), {$set: {total: parseInt(value)}});
      return(value);
   }, { 
@@ -69,16 +73,10 @@ console.log("salesdata  rendered\n");
      width : 100,
      submit  : 'OK',
  });
- 
- plotit(Sales2013.find({}));
 
- 
-   salesdataRendered = true;
+};
 
-
-}
-
-}  // if client
+} // if isClient
 
 if (Meteor.isServer) {
   Meteor.startup(function () {

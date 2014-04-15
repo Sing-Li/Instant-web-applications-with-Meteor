@@ -23,13 +23,19 @@
     	{{> salesdata}}
       {{/if}}
   	</div>
-  	<div id="chart">
-      
+  	<div>
+      {{#if currentUser}}
+           {{> piechart}} 
+       {{/if}}
   	</div>
   </div>
   
 </body>
 
+<template name="piechart">
+  <div id="chart">
+  </div>
+</template>
 
 
 <template name="salesdata">
@@ -41,8 +47,8 @@
 </template>
 
 <template name="datapoint">
-  <div class="datapoint {{selected}}">
-    <span class="region">{{region}}</span>
-    <span class="sales editable {{updated}}">{{total}}</span>
+  <div class="datapoint">
+    <span id="{{_id}}_region" class="region">{{region}}</span>
+    <span id="{{_id}}_total" class="sales editable" sid="{{_id}}">{{total}}</span>
   </div>
 </template>
