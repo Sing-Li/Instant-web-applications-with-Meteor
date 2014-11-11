@@ -40,7 +40,7 @@ Download [the zip file here](https://bitbucket.org/singli/instant-web-applicatio
 ### NEW UPDATE for IBM BlueMix users
 
 This code works with Meteor 1.0 release deployable on production Bluemix.
-See my article on developerworks on how to work withy Meteor applications on Bluemix.  [Build a reactive sales chart app with Meteor](http://www.ibm.com/developerworks/library/wa-bluemix-meteor-app/index.html)
+See my article on developerworks on how to work with Meteor applications on Bluemix.  [Build a reactive sales chart app with Meteor](http://www.ibm.com/developerworks/library/wa-bluemix-meteor-app/index.html)
 
 ### NEW UPDATE for Docker 0.8+ users
 
