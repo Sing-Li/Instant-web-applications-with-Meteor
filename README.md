@@ -11,11 +11,11 @@ Please see [Instant web applications with Meteor](http://www.ibm.com/developerwo
 
 ![Real time udpated sales chart with full user access control](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/figure3.jpg)
 
-[**Try this app now on IBM's Codename BlueMix**](http://meteorsales1.ng.bluemix.net)
+[**Try this app now on IBM BlueMix**](http://meteorsales1.mybluemix.net)
 
 Open up multiple browser windows running the app; update sales in one of the windows, and observe the pie charts update across all.
 
-[**Try an access controlled version of the app now on IBM's Codename BlueMix**](http://meteorsales2.ng.bluemix.net)
+[**Try an access controlled version of the app now on IBM BlueMix**](http://meteorsales2.mybluemix.net)
 
 Mobile Photo Sharing Example on Meteor
 --------------------------------------
@@ -24,37 +24,23 @@ Take Meteor mobile.  Build a photo sharing app for your mobile phone using Meteo
 
 ![dW Foto Share - a mobile photo sharing service](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/figure7.jpg)
 
-[**Try this mobile web app now on your phone - hosted on IBM's Codename BlueMix**](http://meteorfotoshare.ng.bluemix.net)
+[**Try this mobile web app now on your phone - hosted on IBM's Codename BlueMix**](http://meteorfotoshare.mybluemix.net)
 
 Please see [Instant web applications with Meteor](http://www.ibm.com/developerworks/opensource/library/wa-meteor-webapps/index.html)  for detailed information on working with this code.
 
-While the original code worked well with Meteor 0.6.3.1; the Meteor platform itself is undergoing some rapid changes as it heads towards release 1.0. Some changes broke compatibility with 0.6.3.1.
 
 This repository contains code that will be updated periodically to work with the most current version of Meteor.
 
-### NEW UPDATE
+### NEW UPDATE - Code now Meteor 1.0 Ready! 
 
-The code is now compatible with Meteor 0.8.0.0 (New Blaze Engine).  Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor0_8_0_0.zip). 
+Meteor is now finally production ready at release 1.0!
+The code has been fully updated and tested with the official 1.0 release of Meteor. 
+Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor1_0.zip). 
 
-### NEW UPDATE for BlueMix users
+### NEW UPDATE for IBM BlueMix users
 
-Please note that:
-
-* BlueMix is currently in beta and under active development
-* Meteor is currently changing rapidly as it heads towards 1.0 release
-
-The following notes on BlueMix deployment are based on BlueMix beta week-number-1 + Meteor Preview 0.7.1.2 and may become out of date quickly.
-
-* After you run meteor bundle on an app, it becomes a node application that can be deployed (anywhere, including BlueMix)
-* Remove the fiber implementation in the bundle, it is native to your platform, follow the README in the Meteor bundle you created
-* Make sure you use the Golang version of the cf client for BlueMix, version 6.0+, not the older Ruby one
-* Use the Heroku Node.js build-pack
-* Create a package.json file for npm
-* Create a MongoD service instance in BlueMix for each of your apps
-* Locate the URL from the MongoD service instance, and set MONGO_URL environment variable on BlueMix;  use 'cf set-env'
-* Set the ROOT_URL environment variable on BlueMix; use 'cf set-env'
-
-For the near future, I am developing a [BlueMix Meteor build-pack](https://github.com/Sing-Li/heroku-buildpack-nodejs) with aim to ease Meteor BlueMix deployment.
+This code works with Meteor 1.0 release deployable on production Bluemix.
+See my article on developerworks on how to work withy Meteor applications on Bluemix.  [Build a reactive sales chart app with Meteor](http://www.ibm.com/developerworks/library/wa-bluemix-meteor-app/index.html)
 
 ### NEW UPDATE for Docker 0.8+ users
 

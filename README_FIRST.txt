@@ -1,9 +1,9 @@
 To try out this sample code, you need to first make sure that
 Meteor is installed and running on your system.
 
-This sample code has been tested against Meteor 0.6.3.1.
+This sample code has been tested against the Meteor official release 1.0. 
 
-Please note that Meteor 0.6.3.1 officially supports only MacOSX and Linux.
+Please note that Meteor 1.0  officially supports only MacOSX and Linux.
 
 See official Meteor website for support of Windows.
 

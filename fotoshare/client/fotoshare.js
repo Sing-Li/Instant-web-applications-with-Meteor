@@ -5,36 +5,38 @@ Meteor.subscribe("photos");
 
 var curIndex;
 
- Template.pages.photos = function () {
-    return Fotos.find({});
-  };
+ Template.pages.helpers({
+    photos: function () {
+            return Fotos.find({});
+            },
 
-  // no access to handlebar @index yet in meteor - implement own index
-Template.pages.resetIndex = function () {
-  curIndex = 0;
-}
+    // no  @index yet in meteor spacebar - implement own index
+   resetIndex: function () {
+                curIndex = 0;
+              },
 
-Template.photopage.index = function() {
-  return curIndex;
-}
+    incIndex: function() {
+                curIndex = curIndex + 1;
+              }
+  });
 
-Template.pages.incIndex = function() {
-  curIndex = curIndex + 1;
 
-  console.log("INC ED...");
-}
+Template.photopage.helpers({
+   index: function() {
+            return curIndex;
+          },
+    indexIsZero: function() {
+                    return (curIndex === 0);
+                 },
 
-Template.photopage.indexIsZero = function() {
-  return (curIndex === 0);
-}
+    indexPrev: function() {
+                  return  (curIndex - 1);
+                },
 
-Template.photopage.indexPrev = function() {
-  return  (curIndex - 1);
-}
-
-Template.photopage.indexNext = function() {
-  return (curIndex + 1);
-}
+    indexNext: function() {
+                  return (curIndex + 1);
+                }
+  });
 
 Template.photopage.events({
   'click .fs-logoff': function () {
@@ -52,10 +54,7 @@ Template.photopage.events({
 
 
 Template.pages.rendered = function() {
-
   console.log("pages rendered");
-
-
 };
 
 

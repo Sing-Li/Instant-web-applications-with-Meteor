@@ -2,26 +2,30 @@ Sales2013 = new Meteor.Collection("regional_sales");
 
 if (Meteor.isClient) {
 
-Template.salesdata.dataset = function () {
-    return Sales2013.find({});
-};
+Template.salesdata.helpers({
+   dataset: function () {
+              return Sales2013.find({});
+            }
+});
 
-Template.datapoint.selected = function () {
-    return Session.equals("selected_datapoint", this._id) ? "selected" : '';
- };
+Template.datapoint.helpers( {
+  selected: function () {
+              return Session.equals("selected_datapoint", this._id) ? "selected" : '';
+              }
+});
 
- Template.datapoint.events = {
+Template.datapoint.events({
     'click': function () {
       Session.set("selected_datapoint", this._id);
     }
-  };
+});
 
 
 Template.piechart.rendered = function () {
-Deps.autorun( function() {  
- plotit(this, Sales2013.find({}));
- updateTable(this, Sales2013.find({}));
-});
+    Tracker.autorun( function() {  
+                      plotit(this, Sales2013.find({}));
+                      updateTable(this, Sales2013.find({}));
+                    });
 
 }
 

@@ -3,16 +3,17 @@ Sales2013 = new Meteor.Collection("regional_sales");
 
 Meteor.subscribe("global_sales");
 
-Template.salesdata.dataset = function () {
-    return Sales2013.find({});
-  };
+Template.salesdata.helpers({
+    dataset:  function () {
+                return Sales2013.find({});
+              }
+});
+
 Template.piechart.rendered = function () {
-
-Deps.autorun( function() {  
- plotit(this, Sales2013.find({}));
- updateTable(this, Sales2013.find({}));
- });
-
+                              Tracker.autorun( function() {  
+                                                  plotit(this, Sales2013.find({}));
+                                                  updateTable(this, Sales2013.find({}));
+                                              });
 }
 
 function updateTable(inst, cur)  {
