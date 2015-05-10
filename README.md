@@ -91,11 +91,6 @@ The instcode.sh script performs the following:
 3.	add and remove the security and login packages required for each project
 4.	replace the contents of the projects with the downloaded code
 
-#### NOTE
-
-When you run the sales and fotoshare projects for the very first time, 
-Meteor may immediately reboot with an exception thrown.  The bootstrap code
-will create the two users - sing and joe - the first time it is executed.
 
 
 
