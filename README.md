@@ -31,6 +31,13 @@ Please see [Instant web applications with Meteor](http://www.ibm.com/developerwo
 
 This repository contains code that will be updated periodically to work with the most current version of Meteor.
 
+### NEW UDPATE - To Production Meteor 1.1.0.2 !
+
+The stable version of Meteor has come a long way since 0.6.3.1 !
+Code revamped to take advantage of per-template subscription, working Blaze reactive updates, plus other features and bug fixes.
+Tested with the latest available 1.1.0.2, and should be compatible with all 1.x releases.
+Download [the zip file here](https://bitbucket.org/singli/instant-web-applications-with-meteor/downloads/code4meteor1_1_0_2.zip).
+
 ### NEW UPDATE - Code now Meteor 1.0 Ready! 
 
 Meteor is now finally production ready at release 1.0!

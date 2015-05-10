@@ -1,3 +1,5 @@
 .meteor
 *.tgz
 *.zip
+local
+

@@ -5,7 +5,7 @@
 
 <body>
   <div id="title">
-  	<h1>Global Sales 2015</h1>
+  	{{> title}}
   </div>
   <div id="container">
   	<div id="salestable">
@@ -16,21 +16,30 @@
 </body>
 
 <template name="piechart">
-  	<div id="chart">
+      <div id="chart">
     </div>
+  	{{#if Template.subscriptionsReady}}
+      {{plotchart}}
+    {{/if}}
 </template>
 
 <template name="salesdata">
   <div class="salesdata">
-    {{#each dataset}}
-      {{> datapoint}}
-    {{/each}}
+    {{#if Template.subscriptionsReady}}
+      {{#each dataset}}
+        {{> datapoint}}
+      {{/each}}
+    {{/if}}
   </div>
 </template>
 
 <template name="datapoint">
   <div class="datapoint {{selected}}">
-    <span id="{{_id}}_region" class="region">{{region}}</span>
-    <span id="{{_id}}_total" class="sales editable">{{total}}</span>
+    <div id="{{_id}}_region" class="region">{{region}}</div>
+    <div id="{{_id}}_total" data-inputclass="inputclass" class="sales editable">{{total}}</div>
   </div>
+</template>
+
+<template name="title">
+<h1>Global Sales {{thisyear}}</h1>
 </template>

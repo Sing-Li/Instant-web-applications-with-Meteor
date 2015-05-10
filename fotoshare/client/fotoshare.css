@@ -8,3 +8,27 @@ img {width:  100%}
 
 
 .logindialog { height:300px;}
+
+
+ /* styling for this page */
+    .m-scooch {
+        padding-bottom: 30px;
+    }
+
+    .m-card-light {
+        width: 200px;
+        margin: 30px 10px 0 10px;
+    }
+    .m-card-dark h3 {
+        margin-top: 0;
+    }
+
+    .m-item .m-card-dark img, .m-item .m-card-light img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .m-scooch-example-5 .m-caption {
+        color: #ccc;
+    }

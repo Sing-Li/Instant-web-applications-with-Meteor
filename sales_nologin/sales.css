@@ -38,6 +38,7 @@ body {
     height: 300px;
 }
 
+
 .datapoint {
     cursor: pointer;
     padding: 5px;
@@ -60,6 +61,7 @@ body {
 
 .datapoint.selected {
     background-color: yellow;
+    width: 345px;
 }
 
 .datapint.selected .sales{
@@ -82,4 +84,13 @@ body {
 
 .inc {
   cursor: pointer;
+}
+/* override the default x-editable dashed underline */
+.editable-click {
+    border-bottom: none;
+}
+
+/* override the default x-editable INPUT field length */
+.inputclass {
+    width: 75px;
 }

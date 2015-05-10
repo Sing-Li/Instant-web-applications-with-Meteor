@@ -1,7 +1,7 @@
 
-Sales2013 = new Meteor.Collection("regional_sales");
+SalesData = new Mongo.Collection("regional_sales");
 
-Sales2013.allow({
+SalesData.allow({
 
   update: function (userId, sales, fields, modifier) {
     if (userId !== sales.owner)

@@ -1,41 +1,31 @@
 
-Fotos = new Meteor.Collection("fotoshare_photos");
+Fotos = new Mongo.Collection("fotoshare_photos");
 
-Meteor.subscribe("photos");
+Template.pages.onCreated(function() {
+  this.subscribe("photos");
+});
 
-var curIndex;
+Template.photopage.onCreated(function() {
+  Template.instance().numphotos = 0;
+});
 
- Template.pages.helpers({
-    photos: function () {
-            return Fotos.find({});
-            },
-
-    // no  @index yet in meteor spacebar - implement own index
-   resetIndex: function () {
-                curIndex = 0;
-              },
-
-    incIndex: function() {
-                curIndex = curIndex + 1;
-              }
-  });
-
-
+ 
 Template.photopage.helpers({
-   index: function() {
-            return curIndex;
-          },
-    indexIsZero: function() {
-                    return (curIndex === 0);
-                 },
-
-    indexPrev: function() {
-                  return  (curIndex - 1);
-                },
-
-    indexNext: function() {
-                  return (curIndex + 1);
-                }
+  photos: function () {
+            var curcount = Fotos.find({}).count();
+            console.log(curcount);
+            var inst = Template.instance();
+            console.log('num photo ' + inst.numphotos);
+            if (inst.numphotos > 0) {
+              Meteor.defer( function() {
+                $('.m-scooch').scooch('refresh');
+                $('.m-scooch').scooch('move', 1000);
+                
+              });
+            }
+            inst.numphotos = curcount;
+            return Fotos.find({});
+            }
   });
 
 Template.photopage.events({
@@ -45,45 +35,28 @@ Template.photopage.events({
     });
   },
   'click .fs-share': function() {
-      Meteor.call('shareThisPhoto', this._id, function (error, retval) {
+     var curselected = $('.m-active > img').attr('id');
+     console.log(curselected);
+  
+      Meteor.call('shareThisPhoto', curselected, function (error, retval) {
         console.log(retval);
       });
+
   }
 });
-
 
 
 Template.pages.rendered = function() {
   console.log("pages rendered");
 };
 
-
-
 Template.photopage.rendered = function () {
-  console.log('called PAGE rendered');
+      this.$('.m-scooch').scooch();
 
-  if (curIndex > 0)  {
-   var curLast =  $('#x' + (curIndex - 1));
-   var secLast =  $('#x' + (curIndex - 2));
-   if (curLast)  {
-    curLast.prop('disabled', true);
-    curLast.hide();
-   }
-   if (secLast) {
-    if (secLast.prop('disabled')) {
-      secLast.removeProp('disabled');
-      secLast.show();
-    }
-   
-   }
+      Meteor.defer(function() {
+        $.mobile.changePage('#main');
   
-  Meteor.defer( function() {
-   
-   
-     $.mobile.changePage('#p' + (curIndex - 1));
-   });
-  }
-  
+      });
+      console.log('make scooch');
+
   };
-
-

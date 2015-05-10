@@ -1,15 +1,17 @@
 
 <head>
-<title>Sales by Region</title>
+<title>Sales by Region with Login</title>
 </head>
 
 <body>
+
+
   <div id="title">
    <div class="header">
-          <div class="span5">
-            <h1 style="margin-bottom: 0px">Sales Portal</h1>
+          <div >
+            {{> title}}
           </div>
-          <div class="span5">
+          <div>
             <div style="float: right">
               {{> loginButtons align="right" }}
             </div>
@@ -19,11 +21,14 @@
   <div id="container">
  
   	<div id="salestable">
+     
       {{#if currentUser}}
     	{{> salesdata}}
       {{/if}}
+
   	</div>
   	<div>
+  
       {{#if currentUser}}
            {{> piechart}} 
        {{/if}}
@@ -35,20 +40,29 @@
 <template name="piechart">
   <div id="chart">
   </div>
+    {{#if Template.subscriptionsReady}}
+      {{plotchart}}
+    {{/if}}
 </template>
 
 
 <template name="salesdata">
   <div class="salesdata">
+  {{#if Template.subscriptionsReady}}
     {{#each dataset}}
       {{> datapoint}}
     {{/each}}
+    {{/if}}
   </div>
 </template>
 
 <template name="datapoint">
-  <div class="datapoint">
+  <div class="datapoint {{selected}}">
     <span id="{{_id}}_region" class="region">{{region}}</span>
-    <span id="{{_id}}_total" class="sales editable" sid="{{_id}}">{{total}}</span>
+    <div id="{{_id}}_total" data-inputclass="inputclass" class="sales editable">{{total}}</div>
   </div>
+</template>
+
+<template name="title">
+<h1>Sales Portal {{thisyear}}</h1>
 </template>

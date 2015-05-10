@@ -19,42 +19,41 @@
        </div>
     </div> <!-- content -->
   </div>   <!-- page -->
- 
-   	{{> pages}}
+     {{#if currentUser}}
+   	    {{> pages}}
+      {{/if}}
  </body>
 
 <template name="pages">
-    {{#if currentUser}}
-		{{resetIndex}}
-   {{#each photos}}
-      {{> photopage}}
-      {{incIndex}}
-    {{/each}}
-    {{/if}}
+
+     {{#if Template.subscriptionsReady}}
+		    {{> photopage}}
+     {{/if}}
+
    
 </template>
 
 <template name="photopage">
-  <div data-role="page" id="p{{index}}">
-      <div data-role="header">
-          <h1>dW Foto Share</h1>
-      </div> <!-- /header -->
+  <div data-role="page" id="main">
+    <div data-role="header"  data-position="fixed"  data-tap-toggle="false">
+        <h1>dW Foto Share</h1>
+    </div> <!-- /header -->
     
     <div data-role="content" class="apic">
-	  
-    <img src="{{img}}" />
-    <ul data-role="pagination">
-       {{#if indexIsZero}}
-		<li class="ui-pagination-next"><a href="#p{{indexNext}}">Next</a></li>
-		{{else}}
-		<li class="ui-pagination-prev"><a href="#p{{indexPrev}}">Prev</a></li>
-		<li id="x{{index}}" class="ui-pagination-next"><a href="#p{{indexNext}}">Next</a></li>	
-		{{/if}}
-	</ul>
-      
+    	  <div class="m-scooch m-fluid m-scooch-photos">
+          <div class="m-scooch-inner">
+            {{#each photos}}
+                {{> photoitem}}
+            {{/each}}
+          </div>
+          <div class="m-scooch-controls m-scooch-hud">
+              <a class="m-scooch-prev" href="#" data-m-slide="prev">Previous</a>
+              <a class="m-scooch-next" href="#" data-m-slide="next">Next</a>
+          </div>
+        </div>
     </div> <!-- /content -->
-
-     <div data-role="footer" data-position="fixed">
+    
+    <div data-role="footer" data-position="fixed"  data-tap-toggle="false">
         <div data-role="navbar">
             <ul>
                 <li><a href="#" data-icon="gear" class="fs-share ui-btn-active">Share</a></li>
@@ -64,4 +63,10 @@
      </div><!-- /footer -->
     </div> <!-- /page -->
 
+</template>
+
+<template name="photoitem">
+  <div class="m-item">
+       <img id="{{_id}}" src="{{img}}" />
+  </div>
 </template>
